@@ -1,0 +1,1 @@
+# shadow-news-entity
