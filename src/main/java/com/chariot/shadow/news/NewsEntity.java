@@ -1,17 +1,15 @@
 package com.chariot.shadow.news;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Date;
 
 /**
- * Created by Trung Vu on 2017/05/24.
+ * Created by Trung Vu on 2017/05/26.
  */
 @Entity
-public class News {
+@Table(name = "news", schema = "news")
+public class NewsEntity {
     private Integer id;
     private String newsId;
     private String supplierId;
@@ -106,16 +104,16 @@ public class News {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        News news = (News) o;
+        NewsEntity that = (NewsEntity) o;
 
-        if (id != null ? !id.equals(news.id) : news.id != null) return false;
-        if (newsId != null ? !newsId.equals(news.newsId) : news.newsId != null) return false;
-        if (supplierId != null ? !supplierId.equals(news.supplierId) : news.supplierId != null) return false;
-        if (title != null ? !title.equals(news.title) : news.title != null) return false;
-        if (content != null ? !content.equals(news.content) : news.content != null) return false;
-        if (link != null ? !link.equals(news.link) : news.link != null) return false;
-        if (publishDate != null ? !publishDate.equals(news.publishDate) : news.publishDate != null) return false;
-        if (registrationTimestamp != null ? !registrationTimestamp.equals(news.registrationTimestamp) : news.registrationTimestamp != null)
+        if (id != null ? !id.equals(that.id) : that.id != null) return false;
+        if (newsId != null ? !newsId.equals(that.newsId) : that.newsId != null) return false;
+        if (supplierId != null ? !supplierId.equals(that.supplierId) : that.supplierId != null) return false;
+        if (title != null ? !title.equals(that.title) : that.title != null) return false;
+        if (content != null ? !content.equals(that.content) : that.content != null) return false;
+        if (link != null ? !link.equals(that.link) : that.link != null) return false;
+        if (publishDate != null ? !publishDate.equals(that.publishDate) : that.publishDate != null) return false;
+        if (registrationTimestamp != null ? !registrationTimestamp.equals(that.registrationTimestamp) : that.registrationTimestamp != null)
             return false;
 
         return true;
