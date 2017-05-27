@@ -10,13 +10,13 @@ import java.util.Date;
 @Entity
 @Table(name = "news", schema = "news")
 public class NewsEntity {
-    private Integer id;
+    @Id private Integer id;
     private String newsId;
     private String supplierId;
     private String title;
     private String content;
     private String link;
-    private Date publishDate;
+    @Temporal(TemporalType.DATE) private Date publishDate;
     private Timestamp registrationTimestamp;
 
     @Id
