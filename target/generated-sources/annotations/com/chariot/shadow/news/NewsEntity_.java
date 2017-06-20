@@ -6,15 +6,16 @@ import javax.annotation.Generated;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
-@Generated(value="EclipseLink-2.6.4.v20160829-rNA", date="2017-06-11T19:20:50")
+@Generated(value="EclipseLink-2.6.4.v20160829-rNA", date="2017-06-20T19:45:30")
 @StaticMetamodel(NewsEntity.class)
 public class NewsEntity_ { 
 
     public static volatile SingularAttribute<NewsEntity, String> newsId;
     public static volatile SingularAttribute<NewsEntity, Timestamp> registrationTimestamp;
     public static volatile SingularAttribute<NewsEntity, String> supplierId;
-    public static volatile SingularAttribute<NewsEntity, Date> publishDate;
     public static volatile SingularAttribute<NewsEntity, String> link;
+    public static volatile SingularAttribute<NewsEntity, Date> publishDate;
+    public static volatile SingularAttribute<NewsEntity, String> actionCode;
     public static volatile SingularAttribute<NewsEntity, Integer> id;
     public static volatile SingularAttribute<NewsEntity, String> title;
     public static volatile SingularAttribute<NewsEntity, String> content;

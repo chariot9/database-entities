@@ -10,14 +10,15 @@ import java.util.Date;
 @Entity
 @Table(name = "news", schema = "news")
 public class NewsEntity {
-    private Integer id;
+    @Id private Integer id;
     private String newsId;
     private String supplierId;
     private String title;
     private String content;
     private String link;
-    private Date publishDate;
+    @Temporal(TemporalType.DATE) private Date publishDate;
     private Timestamp registrationTimestamp;
+    private String actionCode;
 
     @Id
     @Column(name = "id")
@@ -130,5 +131,15 @@ public class NewsEntity {
         result = 31 * result + (publishDate != null ? publishDate.hashCode() : 0);
         result = 31 * result + (registrationTimestamp != null ? registrationTimestamp.hashCode() : 0);
         return result;
+    }
+
+    @Basic
+    @Column(name = "action_code")
+    public String getActionCode() {
+        return actionCode;
+    }
+
+    public void setActionCode(String actionCode) {
+        this.actionCode = actionCode;
     }
 }
