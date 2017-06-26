@@ -5,20 +5,21 @@ import java.sql.Timestamp;
 import java.util.Date;
 
 /**
- * Created by Trung Vu on 2017/05/26.
+ * Created by Trung Vu on 2017/06/21.
  */
 @Entity
-@Table(name = "news", schema = "news")
+@Table(name = "news", schema = "news", catalog = "")
 public class NewsEntity {
-    @Id private Integer id;
+    private Integer id;
     private String newsId;
     private String supplierId;
     private String title;
     private String content;
     private String link;
-    @Temporal(TemporalType.DATE) private Date publishDate;
-    private Timestamp registrationTimestamp;
     private String actionCode;
+    private Integer updateSign;
+    private Date publishDate;
+    private Timestamp registrationTimestamp;
 
     @Id
     @Column(name = "id")
@@ -81,6 +82,26 @@ public class NewsEntity {
     }
 
     @Basic
+    @Column(name = "action_code")
+    public String getActionCode() {
+        return actionCode;
+    }
+
+    public void setActionCode(String actionCode) {
+        this.actionCode = actionCode;
+    }
+
+    @Basic
+    @Column(name = "update_sign")
+    public Integer getUpdateSign() {
+        return updateSign;
+    }
+
+    public void setUpdateSign(Integer updateSign) {
+        this.updateSign = updateSign;
+    }
+
+    @Basic
     @Column(name = "publish_date")
     public Date getPublishDate() {
         return publishDate;
@@ -113,6 +134,8 @@ public class NewsEntity {
         if (title != null ? !title.equals(that.title) : that.title != null) return false;
         if (content != null ? !content.equals(that.content) : that.content != null) return false;
         if (link != null ? !link.equals(that.link) : that.link != null) return false;
+        if (actionCode != null ? !actionCode.equals(that.actionCode) : that.actionCode != null) return false;
+        if (updateSign != null ? !updateSign.equals(that.updateSign) : that.updateSign != null) return false;
         if (publishDate != null ? !publishDate.equals(that.publishDate) : that.publishDate != null) return false;
         if (registrationTimestamp != null ? !registrationTimestamp.equals(that.registrationTimestamp) : that.registrationTimestamp != null)
             return false;
@@ -128,18 +151,10 @@ public class NewsEntity {
         result = 31 * result + (title != null ? title.hashCode() : 0);
         result = 31 * result + (content != null ? content.hashCode() : 0);
         result = 31 * result + (link != null ? link.hashCode() : 0);
+        result = 31 * result + (actionCode != null ? actionCode.hashCode() : 0);
+        result = 31 * result + (updateSign != null ? updateSign.hashCode() : 0);
         result = 31 * result + (publishDate != null ? publishDate.hashCode() : 0);
         result = 31 * result + (registrationTimestamp != null ? registrationTimestamp.hashCode() : 0);
         return result;
-    }
-
-    @Basic
-    @Column(name = "action_code")
-    public String getActionCode() {
-        return actionCode;
-    }
-
-    public void setActionCode(String actionCode) {
-        this.actionCode = actionCode;
     }
 }

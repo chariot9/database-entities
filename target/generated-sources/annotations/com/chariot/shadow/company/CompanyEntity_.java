@@ -5,7 +5,7 @@ import javax.annotation.Generated;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
-@Generated(value="EclipseLink-2.6.4.v20160829-rNA", date="2017-06-20T19:45:30")
+@Generated(value="EclipseLink-2.6.4.v20160829-rNA", date="2017-06-21T18:36:10")
 @StaticMetamodel(CompanyEntity.class)
 public class CompanyEntity_ { 
 
@@ -18,6 +18,7 @@ public class CompanyEntity_ {
     public static volatile SingularAttribute<CompanyEntity, String> webUrl;
     public static volatile SingularAttribute<CompanyEntity, Date> publishDate;
     public static volatile SingularAttribute<CompanyEntity, String> actionCode;
+    public static volatile SingularAttribute<CompanyEntity, Integer> updateSign;
     public static volatile SingularAttribute<CompanyEntity, String> companyNameEnglish;
     public static volatile SingularAttribute<CompanyEntity, String> addressRegistered;
 

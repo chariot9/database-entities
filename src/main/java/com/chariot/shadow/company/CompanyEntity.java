@@ -4,10 +4,10 @@ import javax.persistence.*;
 import java.util.Date;
 
 /**
- * Created by Trung Vu on 2017/06/20.
+ * Created by Trung Vu on 2017/06/21.
  */
 @Entity
-@Table(name = "company", schema = "company")
+@Table(name = "company", schema = "company", catalog = "")
 public class CompanyEntity {
     private Integer companyAutoId;
     private String companyId;
@@ -18,6 +18,7 @@ public class CompanyEntity {
     private String telNumber;
     private String webUrl;
     private String actionCode;
+    private Integer updateSign;
     private Date publishDate;
     private Date registrationTimestamp;
 
@@ -112,6 +113,16 @@ public class CompanyEntity {
     }
 
     @Basic
+    @Column(name = "update_sign")
+    public Integer getUpdateSign() {
+        return updateSign;
+    }
+
+    public void setUpdateSign(Integer updateSign) {
+        this.updateSign = updateSign;
+    }
+
+    @Basic
     @Column(name = "publish_date")
     public Date getPublishDate() {
         return publishDate;
@@ -152,6 +163,7 @@ public class CompanyEntity {
         if (telNumber != null ? !telNumber.equals(that.telNumber) : that.telNumber != null) return false;
         if (webUrl != null ? !webUrl.equals(that.webUrl) : that.webUrl != null) return false;
         if (actionCode != null ? !actionCode.equals(that.actionCode) : that.actionCode != null) return false;
+        if (updateSign != null ? !updateSign.equals(that.updateSign) : that.updateSign != null) return false;
         if (publishDate != null ? !publishDate.equals(that.publishDate) : that.publishDate != null) return false;
         if (registrationTimestamp != null ? !registrationTimestamp.equals(that.registrationTimestamp) : that.registrationTimestamp != null)
             return false;
@@ -170,6 +182,7 @@ public class CompanyEntity {
         result = 31 * result + (telNumber != null ? telNumber.hashCode() : 0);
         result = 31 * result + (webUrl != null ? webUrl.hashCode() : 0);
         result = 31 * result + (actionCode != null ? actionCode.hashCode() : 0);
+        result = 31 * result + (updateSign != null ? updateSign.hashCode() : 0);
         result = 31 * result + (publishDate != null ? publishDate.hashCode() : 0);
         result = 31 * result + (registrationTimestamp != null ? registrationTimestamp.hashCode() : 0);
         return result;
